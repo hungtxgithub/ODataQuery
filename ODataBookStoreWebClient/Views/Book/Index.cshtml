@@ -1,0 +1,50 @@
+﻿@using ODataBookStore.EDM;
+@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Book List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    @ViewBag.StringJSON
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modeItems => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeItems => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeItems => item.ISBN)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit","Edit",new{id = item.Id})
+                    @Html.ActionLink("Detail","Detail",new{id = item.Id})
+                    @Html.ActionLink("Delete","Delete",new{id = item.Id})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

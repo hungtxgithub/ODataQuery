@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\NTH\Desktop\Summer2023\PRN231\Lab2\Lab01_BookStoreOData8\ODataBookStoreWebClient
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/NTH/Desktop/Summer2023/PRN231/Lab2/Lab01_BookStoreOData8/ODataBookStoreWebClient/Views/Book/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NTH/Desktop/Summer2023/PRN231/Lab2/Lab01_BookStoreOData8/ODataBookStoreWebClient/Views/Book/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NTH/Desktop/Summer2023/PRN231/Lab2/Lab01_BookStoreOData8/ODataBookStoreWebClient/Views/Book/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NTH/Desktop/Summer2023/PRN231/Lab2/Lab01_BookStoreOData8/ODataBookStoreWebClient/Views/Book/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/NTH/Desktop/Summer2023/PRN231/Lab2/Lab01_BookStoreOData8/ODataBookStoreWebClient/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

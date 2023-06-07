@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ODataBookStore.EDM;
 
 namespace ODataBookStore.Controllers
@@ -14,26 +12,26 @@ namespace ODataBookStore.Controllers
         public BooksController(BookStoreContext context)
         {
             db = context;
-            db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            db.ChangeTracker.QueryTrackingBehavior = Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking;
             if (context.Books.Count() == 0)
             {
-                foreach (var item in DataSource.GetBooks())
+                foreach (var b in DataSource.GetBooks())
                 {
-                    context.Books.Add(item);
-                    context.Presses.Add(item.Press);
+                    context.Presses.Add(b.Press);
+                    context.Books.Add(b);
                 }
                 context.SaveChanges();
             }
         }
 
-        [EnableQuery(PageSize = 1)]
+        [EnableQuery]
         public IActionResult Get()
         {
-            return Ok(db.Books);
+            return Ok(db.Books.ToList());
         }
 
         [EnableQuery]
-        public IActionResult Get(int key, string version)
+        public IActionResult Get(int key)
         {
             return Ok(db.Books.FirstOrDefault(c => c.Id == key));
         }
@@ -47,18 +45,28 @@ namespace ODataBookStore.Controllers
         }
 
         [EnableQuery]
-        public IActionResult Delete([FromBody] int key)
+        public IActionResult Delete(int key)
         {
             Book b = db.Books.FirstOrDefault(c => c.Id == key);
             if (b == null)
             {
                 return NotFound();
-            };
-
+            }
             db.Books.Remove(b);
             db.SaveChanges();
             return Ok();
         }
-    }
 
+        [EnableQuery]
+        public IActionResult Put([FromBody] Book book)
+        {
+            if (book == null)
+            {
+                return NotFound();
+            }
+            db.Entry<Book>(book).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return NoContent();
+        }
+    }
 }
